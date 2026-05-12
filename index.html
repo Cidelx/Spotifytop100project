@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Spotify Data Story</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+</head>
+
+<body>
+
+<div id="tooltip"></div>
+
+<section class="section hero">
+  <h1>IS THERE A FORMULA FOR A HIT SONG? 🤔 </h1>
+
+  <p class="intro">
+  Have you ever wondered if there is a "secret formula" for a hit song? By looking at the Spotify Top 100, 
+  you can see how release trends, genres, and audio features like energy or mood actually work together.
+  </p>
+
+  <p class="intro scroll-prompt">
+  Scroll down and interact with the charts to see what you can discover ↓
+  </p>
+</section>
+
+<section class="section">
+  <h2>When were the top songs made?</h2>
+  <p>You are looking at a timeline of hits across several decades. Notice the massive surge starting around 2016. 
+    Do you think our musical tastes are changing, or is the streaming era just producing more "top" songs than the radio ever could?</p>
+  <svg id="time"></svg>
+</section>
+
+<section class="section">
+  <h2>Which genres are taking over?</h2>
+  <p>This chart shows you the most common genres ranked from highest to lowest. 
+    You can see which styles actually dominate the charts and which ones are barely hanging on with just a few tracks.</p>
+  <svg id="genre"></svg>
+</section>
+
+<section class="section">
+  <h2>Where do most hits cluster?</h2>
+  <p>
+    What does a hit song feel like to you? You'll notice that most popular songs aren't just danceable, they 
+    have high-energy. In the chart below, moving to the right means the song has more Energy, 
+    while moving up means it is more Danceable. Look for the group in the top right; that is where 
+    most Spotify success happens.
+  </p>
+  <svg id="scatter1"></svg>
+</section>
+
+<section class="section">
+  <h2>Are hits usually happy or sad?</h2>
+  <p>If you look at the balance between mood (valence) and energy, you can see how hits are distributed. Are you surprised by how many high-energy "sad" songs make it to the top, or does the data show exactly what you expected?</p>
+  <svg id="scatter2"></svg>
+</section>
+
+<section class="section">
+  <h2>What is your version of a hit?</h2>
+  <p>Now it's your turn to experiment. Use the sliders below to filter for specific genres or to set minimum levels for energy and danceability. This tool lets you uncover which audio features truly drive a song to the Top 100.</p>
+
+  <div class="controls">
+    <div class="control-group">
+      <label for="genreFilter">Genre:</label>
+      <select id="genreFilter"></select>
+    </div>
+    <div class="control-group">
+      <label for="energy">Min Energy:</label>
+      <input type="range" id="energy" min="0" max="1" step="0.05" value="0">
+    </div>
+    <div class="control-group">
+      <label for="dance">Min Danceability:</label>
+      <input type="range" id="dance" min="0" max="1" step="0.05" value="0">
+    </div>
+  </div>
+
+  <svg id="explore"></svg>
+  <p id="count"></p>
+</section>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
